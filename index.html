@@ -26,19 +26,138 @@
 		href="https://shreyasboss.github.io/pwademo/manifest.json">
 </head>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
 <body>
-<h1 style="color: red;">
-	Code Chakra Tech</h1>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">Rock MSC</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto">
+			  <li class="nav-item">
+				<a class="nav-link active" href="#">Home
+				 
+				</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Collage</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
 
-
-<p>
-	This is a simple tutorial for
-	creating a PWA application.
-</p>
-
-<img  alt="dog">
+	  <div class="container">
+		  <div class="row">
+			  <div class="col-md-6">
+             <h1>New Entery</h1>
+			 <form onSubmit="saveData()">
+				<div class="form-group">
+					<label for="firstname" class="form-label mt-4">First Name</label>
+					<input type="text" class="form-control" id="firstname"  placeholder="Enter First Name">
+				  </div>
+				  <div class="form-group">
+					<label for="middlename" class="form-label mt-4">Middle Name</label>
+					<input type="text" class="form-control" id="middlename"  placeholder="Enter Middle Name">
+				  </div>
+				  <div class="form-group">
+					<label for="lastname" class="form-label mt-4">Last Name</label>
+					<input type="text" class="form-control" id="lastname"  placeholder="Enter Last Name">
+				  </div>
+				  <div class="form-group">
+					<label for="collagename" class="form-label mt-4">Collage Name</label>
+					<select class="form-select" id="collagename">
+					  <option>select collage</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+				  </div>
+				  <div class="form-group">
+					<label for="email" class="form-label mt-4">Email address</label>
+					<input type="email" class="form-control" id="email"  placeholder="Enter email">
+					
+				  </div>
+				  <div class="form-group">
+					<label for="mobile" class="form-label mt-4">Mobile No</label>
+					<input type="text" class="form-control" id="mobile"  placeholder="Enter Mobile No">
+				  </div>
+				  <div class="form-group">
+					<label for="department" class="form-label mt-4">Department</label>
+					<input type="text" class="form-control" id="Department"  placeholder="Enter Department ">
+				  </div>
+				  <div class="form-group">
+					<label for="city" class="form-label mt-4">City</label>
+					<input type="text" class="form-control" id="city"  placeholder="Enter City ">
+				  </div>
+			 </form>
+			  </div>
+			  <div class="col-md-6">
+				<table id="example" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Position</th>
+							<th>Office</th>
+							<th>Age</th>
+							<th>Start date</th>
+							<th>Salary</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Tiger Nixon</td>
+							<td>System Architect</td>
+							<td>Edinburgh</td>
+							<td>61</td>
+							<td>2011/04/25</td>
+							<td>$320,800</td>
+						</tr>
+						<tr>
+							<td>Garrett Winters</td>
+							<td>Accountant</td>
+							<td>Tokyo</td>
+							<td>63</td>
+							<td>2011/07/25</td>
+							<td>$170,750</td>
+						</tr>
+						<tr>
+							<td>Ashton Cox</td>
+							<td>Junior Technical Author</td>
+							<td>San Francisco</td>
+							<td>66</td>
+							<td>2009/01/12</td>
+							<td>$86,000</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Name</th>
+							<th>Position</th>
+							<th>Office</th>
+							<th>Age</th>
+							<th>Start date</th>
+							<th>Salary</th>
+						</tr>
+					</tfoot>
+				</table>
+			  </div>
+		  </div>
+	  </div>
 	
 
+
+	  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script src="https://shreyasboss.github.io/pwademo/app.js">
 	

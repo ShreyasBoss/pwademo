@@ -7,7 +7,9 @@ window.addEventListener("load", () => {
 async function registerSW() {
   if ("serviceWorker" in navigator) {
     try {
-      await navigator.serviceWorker.register("https://shreyasboss.github.io/pwademo/serviceworker.js");
+      await navigator.serviceWorker.register(
+        "https://shreyasboss.github.io/pwademo/serviceworker.js"
+      );
     } catch (e) {
       console.log("SW registration failed");
     }
@@ -21,3 +23,7 @@ async function getDog() {
 
   document.querySelector("img").src = data.message;
 }
+
+$(document).ready(function () {
+  $("#example").DataTable();
+});
