@@ -1,5 +1,4 @@
 window.addEventListener("load", () => {
-  getDog();
   registerSW();
 });
 
@@ -16,15 +15,38 @@ async function registerSW() {
   }
 }
 
-async function getDog() {
-  const res = await fetch("https://dog.ceo/api/breeds/image/random");
 
-  const data = await res.json();
-
-  document.querySelector("img").src = data.message;
-}
 
  $(document).ready(function () {
    $("#example").DataTable();
+   
+
+   $("#form").submit(function (event) {
+    var formData = {
+      Firstname: $("#firstname").val(),
+      Middlename: $("#middlename").val(),
+      Lastname: $("#lastname").val(),
+      Collagename: $("#collagename").val(),
+      Email_id: $("#email").val(),
+      Mobile_no: $("#mobile").val(),
+      Department: $("#department").val(),
+      City: $("#city").val()
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "https://sleepy-refuge-57881.herokuapp.com/msc/insert",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      console.log(data);
+    });
+
+    event.preventDefault();
+  });
+
  });
+
+
 
