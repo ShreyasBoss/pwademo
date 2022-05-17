@@ -18,6 +18,19 @@ async function registerSW() {
 
 
  $(document).ready(function () {
+
+  getData();
+
+  function getData() {
+    $.ajax({
+      type: "GET",
+      url: "https://sleepy-refuge-57881.herokuapp.com/msc/get",
+      dataType: "json",
+      encode: true,
+    }).success(function (data) {
+      console.log(data);
+    })
+  }
    $("#example").DataTable();
    
 
