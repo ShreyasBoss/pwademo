@@ -28,9 +28,32 @@ async function registerSW() {
       dataType: "json",
       encode: true,
       success:(function (data) {
-        console.log(data);
+       let data = data.data;
+       let markup = `<tr>
+       <td>${data.firstname}</td>
+       <td>${data.middlename}</td>
+       <td>${data.lastname}</td>
+       <td>${data.collegename}</td>
+       <td>${data.email}</td>
+       <td>${data.mobileno}</td>
+       <td>${data.dept}</td>
+       <td>${data.city}</td>
+       <td><button class="btn btn-info" onclick="editData(data._id)">Edit</button></td>
+       <td><button class="btn btn-danger" onclick="deleteData(data._id)">Delete</button></td>
+ 
+       </tr>`
+
+       $("table tbody").append(markup)
       })
     })
+  }
+
+  function editData(id){
+    console.log(id);
+  }
+
+  function deleteData(id){
+    console.log(id);
   }
    $("#example").DataTable();
    
@@ -55,6 +78,7 @@ async function registerSW() {
       encode: true,
     }).done(function (data) {
       console.log(data);
+     
     });
 
     event.preventDefault();
