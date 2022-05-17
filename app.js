@@ -49,7 +49,7 @@ async function registerSW() {
 
     $.ajax({
       type: "POST",
-      url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
+      url: "https://glacial-ridge-44037.herokuapp.com/workshop/insert",
       data: formData,
       dataType: "json",
       encode: true,
