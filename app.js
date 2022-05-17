@@ -27,8 +27,8 @@ async function registerSW() {
       url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
       dataType: "json",
       encode: true,
-      success:(function (data) {
-       let data = data.data;
+       success:(function (data1) {
+       let data = data1.data;
        let markup = `<tr>
        <td>${data.firstname}</td>
        <td>${data.middlename}</td>
