@@ -22,9 +22,9 @@ async function registerSW() {
   getData();
 
   function getData() {
-      $.ajax({
+    $.ajax({
       type: "GET",
-      url: "https://sleepy-refuge-57881.herokuapp.com/msc/get",
+      url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
       dataType: "json",
       encode: true,
       success:(function (data) {
@@ -37,19 +37,19 @@ async function registerSW() {
 
    $("#form").submit(function (event) {
     var formData = {
-      Firstname: $("#firstname").val(),
-      Middlename: $("#middlename").val(),
-      Lastname: $("#lastname").val(),
-      Collagename: $("#collagename").val(),
-      Email_id: $("#email").val(),
-      Mobile_no: $("#mobile").val(),
-      Department: $("#department").val(),
-      City: $("#city").val()
+      firstname: $("#firstname").val(),
+      middlename: $("#middlename").val(),
+      lastname: $("#lastname").val(),
+      collegename: $("#collagename").val(),
+      email: $("#email").val(),
+      mobileno: $("#mobile").val(),
+      dept: $("#department").val(),
+      city: $("#city").val()
     };
 
     $.ajax({
       type: "POST",
-      url: "https://sleepy-refuge-57881.herokuapp.com/msc/insert",
+      url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
       data: formData,
       dataType: "json",
       encode: true,
@@ -58,6 +58,7 @@ async function registerSW() {
     });
 
     event.preventDefault();
+    getData();
   });
 
  });
