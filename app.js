@@ -22,13 +22,14 @@ async function registerSW() {
   getData();
 
   function getData() {
-    $.ajax({
+      $.ajax({
       type: "GET",
       url: "https://sleepy-refuge-57881.herokuapp.com/msc/get",
       dataType: "json",
       encode: true,
-    }).success(function (data) {
-      console.log(data);
+      success:(function (data) {
+        console.log(data);
+      })
     })
   }
    $("#example").DataTable();
