@@ -15,10 +15,7 @@ async function registerSW() {
   }
 }
 
-
-
- $(document).ready(function () {
-
+$(document).ready(function () {
   getData();
 
   function getData() {
@@ -26,10 +23,10 @@ async function registerSW() {
       type: "GET",
       url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
       dataType: "json",
-      encode: true,
-       success:(function (data1) {
-       let data = data1.data;
-       let markup = `<tr>
+      success: function (data1) {
+        let data = data1.data;
+        console.log(data);
+        let markup = `<tr>
        <td>${data.firstname}</td>
        <td>${data.middlename}</td>
        <td>${data.lastname}</td>
@@ -38,27 +35,26 @@ async function registerSW() {
        <td>${data.mobileno}</td>
        <td>${data.dept}</td>
        <td>${data.city}</td>
-       <td><button class="btn btn-info" onclick="editData(data._id)">Edit</button></td>
-       <td><button class="btn btn-danger" onclick="deleteData(data._id)">Delete</button></td>
+       <td><button class="btn btn-info" onclick="editData(${data._id})">Edit</button></td>
+       <td><button class="btn btn-danger" onclick="deleteData(${data._id})">Delete</button></td>
  
-       </tr>`
+       </tr>`;
 
-       $("table tbody").append(markup)
-      })
-    })
+        $("table tbody").append(markup);
+      },
+    });
   }
 
-  function editData(id){
+  function editData(id) {
     console.log(id);
   }
 
-  function deleteData(id){
+  function deleteData(id) {
     console.log(id);
   }
-   $("#example").DataTable();
-   
+  $("#example").DataTable();
 
-   $("#form").submit(function (event) {
+  $("#form").submit(function (event) {
     var formData = {
       firstname: $("#firstname").val(),
       middlename: $("#middlename").val(),
@@ -67,7 +63,7 @@ async function registerSW() {
       email: $("#email").val(),
       mobileno: $("#mobile").val(),
       dept: $("#department").val(),
-      city: $("#city").val()
+      city: $("#city").val(),
     };
 
     $.ajax({
@@ -78,14 +74,9 @@ async function registerSW() {
       encode: true,
     }).done(function (data) {
       console.log(data);
-     
     });
 
     event.preventDefault();
     getData();
   });
-
- });
-
-
-
+});
