@@ -15,46 +15,46 @@ async function registerSW() {
   }
 }
 
+function getData() {
+  $.ajax({
+    type: "GET",
+    url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
+    dataType: "json",
+    success: function (data) {
+      var trHTML = "";
+      $.each(data.data, function (i, item) {
+        trHTML += `<tr>
+          <td>${item.firstname}</td>
+          <td>${item.middlename}</td>
+          <td>${item.lastname}</td>
+          <td>${item.collegename}</td>
+          <td>${item.email}</td>
+          <td>${item.mobileno}</td>
+          <td>${item.dept}</td>
+          <td>${item.city}</td>
+          <td><button class="btn btn-info" onclick="editData(${item._id})">Edit</button></td>
+          <td><button class="btn btn-danger" onclick="deleteData(${item._id})">Delete</button></td>
+          </tr>`;
+      });
+      $("#example").append(trHTML);
+    },
+  });
+}
+
+function editData(id) {
+  console.log(id);
+}
+
+function deleteData(id) {
+  console.log(id);
+}
+
 $(document).ready(function () {
+  // $("#example").DataTable();
   getData();
 
-  function getData() {
-    $.ajax({
-      type: "GET",
-      url: "https://glacial-ridge-44037.herokuapp.com/workshop/get",
-      dataType: "json",
-      success: function (data1) {
-        let data = data1.data;
-        console.log(data);
-        let markup = `<tr>
-       <td>${data.firstname}</td>
-       <td>${data.middlename}</td>
-       <td>${data.lastname}</td>
-       <td>${data.collegename}</td>
-       <td>${data.email}</td>
-       <td>${data.mobileno}</td>
-       <td>${data.dept}</td>
-       <td>${data.city}</td>
-       <td><button class="btn btn-info" onclick="editData(${data._id})">Edit</button></td>
-       <td><button class="btn btn-danger" onclick="deleteData(${data._id})">Delete</button></td>
- 
-       </tr>`;
-
-        $("table tbody").append(markup);
-      },
-    });
-  }
-
-  function editData(id) {
-    console.log(id);
-  }
-
-  function deleteData(id) {
-    console.log(id);
-  }
-  $("#example").DataTable();
-
   $("#form").submit(function (event) {
+    event.preventDefault();
     var formData = {
       firstname: $("#firstname").val(),
       middlename: $("#middlename").val(),
@@ -72,11 +72,10 @@ $(document).ready(function () {
       data: formData,
       dataType: "json",
       encode: true,
-    }).done(function (data) {
-      console.log(data);
+      success: function (data) {
+        console.log(data);
+      },
     });
-
-    event.preventDefault();
     getData();
   });
 });
