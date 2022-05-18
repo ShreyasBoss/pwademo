@@ -32,8 +32,8 @@ function getData() {
           <td>${item.mobileno}</td>
           <td>${item.dept}</td>
           <td>${item.city}</td>
-           <td><button class="btn btn-info" id="edit${item._id}" onclick="editData(item._id)">Edit</button></td>
-          <td><button class="btn btn-danger" id="delete${item._id}" onclick="deleteData(item._id)">Delete</button></td>
+          <td><button class="btn btn-info" id="edit${item._id}" onclick="editData(${item._id})">Edit</button></td>
+          <td><button class="btn btn-danger" id="delete${item._id}" onclick="deleteData(${item._id})">Delete</button></td>
           </tr>`;
       });
       $("#example").append(trHTML);
